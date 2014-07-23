@@ -22,8 +22,10 @@ function resize() {
     for (i=0; i<rw; i++) {
         for (j=0; j<cl; j++) {
             temp++; 
-            if((i+1)*(j+1) != (rw*cl)) { // blank box
-                html+='<div id="p'+(square[temp-1])+'" style="top:'+top+'px; left:'+left+'px;">'+(square[temp-1])+'</div>';
+            if((i+1)*(j+1) == (rw*cl)) { // blank box
+                html+='<div onclick="move('+i+', '+j+')" id="empty" style="top:'+top+'px; left:'+left+'px;"></div>';
+            } else {
+                html+='<div onclick="move('+i+', '+j+')" id="p'+(square[temp-1])+'" style="top:'+top+'px; left:'+left+'px;">'+(square[temp-1])+'</div>';
             }
             left += box;
         }
@@ -38,6 +40,10 @@ function resize() {
 
 function init() {
     resize();
+}
+
+function move(x,y) {
+    console.log('x:'+ x + '-y:'+y);
 }
 
 function shuffle(array) {
