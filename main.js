@@ -32,7 +32,7 @@ function resize() {
         left = 0;
         top += box;
     }
-    
+       
     gamebox.style.width=cl*box+"px";
     gamebox.style.height=rw*box+"px";
     gamebox.innerHTML = html;
